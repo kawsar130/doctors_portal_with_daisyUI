@@ -4,7 +4,7 @@ import GetStartedButton from "../../Buttons/GetStartedButton";
 
 const Treatment = () => {
   return (
-    <div class="hero my-40">
+    <div class="hero my-40 px-12">
       <div class="hero-content flex-col lg:flex-row">
         <img
           src={treatment}

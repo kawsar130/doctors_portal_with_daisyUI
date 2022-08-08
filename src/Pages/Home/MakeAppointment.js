@@ -6,7 +6,7 @@ import GetStartedButton from "../../Buttons/GetStartedButton";
 const MakeAppointment = () => {
   return (
     <section
-      className="flex justify-center items-center"
+      className="flex justify-center items-center px-12"
       style={{ background: `url(${appointment})` }}
     >
       <div className="flex-1 hidden lg:block">

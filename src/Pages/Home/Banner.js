@@ -6,7 +6,7 @@ import GetStartedButton from "../../Buttons/GetStartedButton";
 const Banner = () => {
   return (
     <div
-      class="hero min-h-screen bg-center bg-cover"
+      class="hero min-h-screen bg-center bg-cover px-12"
       style={{ backgroundImage: `url(${bg})` }}
     >
       <div class="hero-content flex-col lg:flex-row-reverse">

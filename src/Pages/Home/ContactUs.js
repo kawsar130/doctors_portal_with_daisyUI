@@ -5,7 +5,7 @@ import appointmentBg from "../../assets/images/appointment.png";
 const ContactUs = () => {
   return (
     <div
-      className=" flex flex-col justify-center items-center "
+      className=" flex flex-col justify-center items-center px-12"
       style={{ background: `url(${appointmentBg})`, height: "50vh" }}
     >
       <div className="flex flex-col items-center" style={{ width: "100%" }}>
