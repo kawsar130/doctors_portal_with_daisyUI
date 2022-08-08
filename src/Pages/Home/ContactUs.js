@@ -5,7 +5,7 @@ import appointmentBg from "../../assets/images/appointment.png";
 const ContactUs = () => {
   return (
     <div
-      className=" flex flex-col justify-center items-center px-12"
+      className=" flex flex-col justify-center items-center px-12}"
       style={{ background: `url(${appointmentBg})`, height: "50vh" }}
     >
       <div className="flex flex-col items-center" style={{ width: "100%" }}>
@@ -15,17 +15,17 @@ const ContactUs = () => {
           <input
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs mb-5"
+            className="input input-bordered w-full max-w-sm mb-5"
           />
           <input
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs mb-5"
+            className="input input-bordered w-full max-w-sm mb-5"
           />
           <input
             type="text"
             placeholder="Type here"
-            className="input input-bordered w-full max-w-xs mb-5"
+            className="input input-bordered w-full max-w-sm mb-5"
           />
         </div>
         <GetStartedButton>Submit</GetStartedButton>
