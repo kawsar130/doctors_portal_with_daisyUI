@@ -22,11 +22,10 @@ const ContactUs = () => {
             placeholder="Type here"
             className="input input-bordered w-full max-w-sm mb-5"
           />
-          <input
-            type="text"
-            placeholder="Type here"
-            className="input input-bordered w-full max-w-sm mb-5"
-          />
+          <textarea
+            className="textarea textarea-bordered w-full max-w-sm mb-5 resize-none"
+            placeholder="Bio"
+          ></textarea>
         </div>
         <GetStartedButton>Submit</GetStartedButton>
       </div>

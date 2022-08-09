@@ -8,9 +8,9 @@ const TestimonialCard = ({ testimonial }) => {
       </div>
       <div className="flex py-5">
         <div className="mr-5">
-          <div class="avatar">
+          <div className="avatar">
             <div
-              class="w-24 rounded-full ring ring-[#19D3AE] ring-offset-base-100 ring-offset-2"
+              className="w-24 rounded-full ring ring-[#19D3AE] ring-offset-base-100 ring-offset-2"
               style={{ width: "75px" }}
             >
               <img src={testimonial.img} alt="" />
