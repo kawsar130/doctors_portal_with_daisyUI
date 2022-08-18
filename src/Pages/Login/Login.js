@@ -1,21 +1,41 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
+import {
+  useSignInWithEmailAndPassword,
+  useSignInWithGoogle,
+} from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
+import Loading from "../Shared/Loading";
 
 const Login = () => {
-  const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+  const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+  const [signInWithEmailAndPassword, user, loading, error] =
+    useSignInWithEmailAndPassword(auth);
   const {
     register,
     formState: { errors },
     handleSubmit,
   } = useForm();
 
-  if (user) {
-    console.log(user.user.displayName);
+  let signInError;
+
+  if (error || gError) {
+    signInError = (
+      <p className="mb-2 text-red-500">
+        <small>{error?.message || gError?.message}</small>
+      </p>
+    );
+  }
+  // Above, Optional chaining was used to prevent the error from being thrown.
+
+  if (gUser) {
+    console.log(gUser.user.displayName);
   }
 
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
+    signInWithEmailAndPassword(data.email, data.password);
+  };
 
   return (
     <div className="flex justify-center items-center h-[90vh]">
@@ -89,16 +109,28 @@ const Login = () => {
                 )}
               </label>
             </div>
+
+            {signInError}
+
             <input
-              className="btn w-full max-w-xs"
+              className={`btn w-full max-w-xs ${loading && "hidden"}`}
               type="submit"
               value="Login"
             />
+            <button
+              className={`btn w-full max-w-xs ${
+                loading ? "loading" : "hidden"
+              }`}
+              disabled={loading}
+            >
+              Login
+            </button>
           </form>
           <div className="divider">OR</div>
           <button
             onClick={() => signInWithGoogle()}
-            className="btn btn-outline"
+            className={`btn btn-outline ${gLoading && "loading"}`}
+            disabled={gLoading}
           >
             Continue with Google
           </button>
