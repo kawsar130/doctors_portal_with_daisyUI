@@ -6,7 +6,7 @@ import {
 } from "react-firebase-hooks/auth";
 import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -20,6 +20,10 @@ const Login = () => {
 
   let signInError;
 
+  const navigate = useNavigate();
+  const location = useLocation();
+  let from = location.state?.from?.pathname || "/";
+
   if (error || gError) {
     signInError = (
       <p className="mb-2 text-red-500">
@@ -30,7 +34,7 @@ const Login = () => {
   // Above, Optional chaining was used to prevent the error from being thrown.
 
   if (user || gUser) {
-    console.log(gUser.user.displayName);
+    navigate(from, { replace: true });
   }
 
   const onSubmit = (data) => {
