@@ -8,11 +8,15 @@ import auth from "../../firebase.init";
 import Loading from "../Shared/Loading";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
   const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
+
+  const [token] = useToken(user || gUser);
+
   const {
     register,
     formState: { errors },
@@ -35,10 +39,10 @@ const Login = () => {
   // Above, Optional chaining was used to prevent the error from being thrown.
 
   useEffect(() => {
-    if (user || gUser) {
+    if (token) {
       navigate(from, { replace: true });
     }
-  }, [user, gUser, from, navigate]);
+  }, [token, from, navigate]);
 
   const onSubmit = (data) => {
     console.log(data);
