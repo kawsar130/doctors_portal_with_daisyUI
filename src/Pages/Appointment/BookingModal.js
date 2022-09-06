@@ -23,7 +23,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
       phone: event.target.phone.value,
     };
 
-    fetch("http://localhost:5000/booking", {
+    fetch("https://guarded-escarpment-66977.herokuapp.com/booking", {
       method: "POST",
       headers: {
         "content-type": "application/json",
